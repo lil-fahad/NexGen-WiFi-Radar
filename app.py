@@ -216,12 +216,14 @@ def create_polar_radar_plot(
             colorscale='Turbo',
             size=4,
             colorbar=dict(
-                title="dB",
-                titleside="right",
+                title=dict(
+                    text="dB",
+                    side="right",
+                    font=dict(color='#00ffcc')
+                ),
                 tickmode="linear",
                 tick0=-40,
                 dtick=10,
-                titlefont=dict(color='#00ffcc'),
                 tickfont=dict(color='#00ffcc')
             ),
             cmin=-40,
@@ -258,7 +260,7 @@ def create_polar_radar_plot(
                 range=[0, np.max(ranges)],
                 showline=True,
                 linecolor='#00ffcc',
-                gridcolor='#00ffcc33',
+                gridcolor='rgba(0, 255, 204, 0.2)',
                 tickfont=dict(color='#00ffcc'),
                 title=dict(text='Range (m)', font=dict(color='#00ffcc'))
             ),
@@ -268,7 +270,7 @@ def create_polar_radar_plot(
                 period=360,
                 showline=True,
                 linecolor='#00ffcc',
-                gridcolor='#00ffcc33',
+                gridcolor='rgba(0, 255, 204, 0.2)',
                 tickfont=dict(color='#00ffcc'),
                 rotation=90
             )
@@ -312,12 +314,14 @@ def create_3d_terrain_plot(
         z=spectrum_db,
         colorscale='Turbo',
         colorbar=dict(
-            title='dB',
-            titleside='right',
+            title=dict(
+                text='dB',
+                side='right',
+                font=dict(color='#00ffcc')
+            ),
             tickmode='linear',
             tick0=-40,
             dtick=10,
-            titlefont=dict(color='#00ffcc'),
             tickfont=dict(color='#00ffcc')
         ),
         hovertemplate='Angle: %{x}°<br>Range: %{y:.2f}m<br>Power: %{z:.1f}dB<extra></extra>'
@@ -326,27 +330,24 @@ def create_3d_terrain_plot(
     fig.update_layout(
         scene=dict(
             xaxis=dict(
-                title='Angle (degrees)',
+                title=dict(text='Angle (degrees)', font=dict(color='#00ffcc')),
                 backgroundcolor='rgba(10, 14, 39, 0.8)',
-                gridcolor='#00ffcc33',
+                gridcolor='rgba(0, 255, 204, 0.2)',
                 showbackground=True,
-                titlefont=dict(color='#00ffcc'),
                 tickfont=dict(color='#00ffcc')
             ),
             yaxis=dict(
-                title='Range (meters)',
+                title=dict(text='Range (meters)', font=dict(color='#00ffcc')),
                 backgroundcolor='rgba(10, 14, 39, 0.8)',
-                gridcolor='#00ffcc33',
+                gridcolor='rgba(0, 255, 204, 0.2)',
                 showbackground=True,
-                titlefont=dict(color='#00ffcc'),
                 tickfont=dict(color='#00ffcc')
             ),
             zaxis=dict(
-                title='Power (dB)',
+                title=dict(text='Power (dB)', font=dict(color='#00ffcc')),
                 backgroundcolor='rgba(10, 14, 39, 0.8)',
-                gridcolor='#00ffcc33',
+                gridcolor='rgba(0, 255, 204, 0.2)',
                 showbackground=True,
-                titlefont=dict(color='#00ffcc'),
                 tickfont=dict(color='#00ffcc')
             ),
             bgcolor='rgba(10, 14, 39, 0.5)'
@@ -403,7 +404,7 @@ def create_vital_signs_plot(
     fig.add_hline(
         y=0,
         line_dash='dash',
-        line_color='#00ffcc44',
+        line_color='rgba(0, 255, 204, 0.27)',
         annotation_text='Baseline',
         annotation_position='right',
         annotation_font=dict(color='#00ffcc', size=10)
@@ -413,21 +414,19 @@ def create_vital_signs_plot(
 
     fig.update_layout(
         xaxis=dict(
-            title='Time (seconds)',
+            title=dict(text='Time (seconds)', font=dict(color='#00ffcc')),
             showgrid=True,
-            gridcolor='#00ffcc22',
+            gridcolor='rgba(0, 255, 204, 0.13)',
             zeroline=True,
-            zerolinecolor='#00ffcc44',
-            titlefont=dict(color='#00ffcc'),
+            zerolinecolor='rgba(0, 255, 204, 0.27)',
             tickfont=dict(color='#00ffcc')
         ),
         yaxis=dict(
-            title='Normalized Amplitude',
+            title=dict(text='Normalized Amplitude', font=dict(color='#00ffcc')),
             showgrid=True,
-            gridcolor='#00ffcc22',
+            gridcolor='rgba(0, 255, 204, 0.13)',
             zeroline=True,
-            zerolinecolor='#00ffcc44',
-            titlefont=dict(color='#00ffcc'),
+            zerolinecolor='rgba(0, 255, 204, 0.27)',
             tickfont=dict(color='#00ffcc')
         ),
         paper_bgcolor='rgba(0,0,0,0)',
